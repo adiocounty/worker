@@ -1,0 +1,22 @@
+{
+  "name": "hotspots4jackpots-worker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "dev:scheduled": "wrangler dev --test-scheduled",
+    "deploy": "wrangler deploy",
+    "cf-typegen": "wrangler types",
+    "db:create": "wrangler d1 create hotspots4jackpots",
+    "db:migrate:local": "wrangler d1 migrations apply DB --local",
+    "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
+    "db:seed:local": "wrangler d1 execute DB --local --file ./migrations/0002_seed.sql",
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260312.0",
+    "typescript": "^5.8.2",
+    "wrangler": "^4.8.0"
+  }
+}

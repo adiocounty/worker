@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "hotspots4jackpots-worker",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-03-19",
+  "observability": {
+    "enabled": true
+  },
+  "triggers": {
+    "crons": [
+      "10 11 * * *",
+      "40 11 * * *",
+      "0 * * * *",
+      "15 10 * * 0"
+    ]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "hotspots4jackpots",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "CACHE",
+      "id": "REPLACE_WITH_KV_NAMESPACE_ID"
+    }
+  ],
+  "vars": {
+    "APP_BASE_URL": "https://hotspots4jackpots.com",
+    "ADMIN_TOKEN": "REPLACE_WITH_LONG_RANDOM_TOKEN",
+    "RETAILER_SOURCE_URL": "https://www.oregonlottery.org/retailer/where-to-play/",
+    "GEOCODER_BASE_URL": "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1",
+    "SOURCE_NAME": "oregon_lottery",
+    "SOURCE_FETCH_ENABLED": "true"
+  }
+}
