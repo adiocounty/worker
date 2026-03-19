@@ -1,0 +1,2 @@
+# worker
+hotspots worker1
